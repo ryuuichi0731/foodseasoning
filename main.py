@@ -8,7 +8,7 @@ from linebot.exceptions import (
     InvalidSignatureError
 )
 from linebot.models import (
-    MessageEvent, TextMessage, TextSendMessage,
+    MessageEvent, TextMessage, TextSendMessage, MessageImagemapAction, ImagemapArea, ImagemapSendMessage, BaseSize
     SourceUser, SourceGroup, SourceRoom,
     TemplateSendMessage, ConfirmTemplate, MessageAction,
     ButtonsTemplate, ImageCarouselTemplate, ImageCarouselColumn, URIAction,
@@ -55,9 +55,46 @@ def callback():
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-    line_bot_api.reply_message(
-        event.reply_token,
-        TextSendMessage(text=event.message.text))
+    if event.type == "message":
+        if event.message.type == "text":
+            actions = []
+            actions.append(MessageImagemapAction(
+                  text = 'chicken_curry',
+                  area = ImagemapArea(
+                      x = 38, y = 54, width = 310, height = 336
+                  )
+            ))
+            actions.append(MessageImagemapAction(
+                  text = 'green_curry',
+                  area = ImagemapArea(
+                      x = 359, y = 54, width = 314, height = 339
+                  )
+            ))
+            actions.append(MessageImagemapAction(
+                  text = 'keema_curry',
+                  area = ImagemapArea(
+                      x = 687, y = 53, width = 316, height = 340
+                  )
+            ))
+            
+            message = ImagemapSendMessage(
+                base_url = 'https://' + request.host + '/imagemap/' + uuid.uuid4().hex, # prevent cache
+                alt_text = '代替テキスト',
+                base_size = BaseSize(height=447, width=1040),
+                actions = actions
+            )
+            line_bot_api.reply_message(event.reply_token, message)
+
+            
+@app.route("/imagemap//", methods=['GET'])
+def imagemap(uniqid, size):
+    img = Image.open("./imagemap.png")
+    img_resize = img.resize((int(size), int(size)))
+    img_io = io.BytesIO()
+    img_resize.save(img_io, 'PNG')
+    img_io.seek(0)
+    return send_file(img_io, mimetype='image/png')
+
 
 
 if __name__ == "__main__":
