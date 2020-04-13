@@ -77,7 +77,7 @@ def handle_message(event):
             ))
             
             message = ImagemapSendMessage(
-                base_url = 'https://example.com/bot/images/rm001/1040' + request.host + '/imagemap/' + uuid.uuid4().hex, # prevent cache
+                base_url = 'https://' + request.host + '/imagemap/' + uuid.uuid4().hex, # prevent cache
                 alt_text = 'currytype1',
                 base_size = BaseSize(height=460, width=1040),
                 actions = actions
@@ -86,7 +86,7 @@ def handle_message(event):
 
 @app.route("/imagemap//", methods=['GET'])
 def imagemap(uniqid, size):
-    img = Image.open("./imagemap.png")
+    img = Image.open("./curry_type1.png")
     img_resize = img.resize((int(size), int(size)))
     img_io = io.BytesIO()
     img_resize.save(img_io, 'PNG')
