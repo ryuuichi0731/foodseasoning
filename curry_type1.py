@@ -47,7 +47,7 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     if event.type == "message":
-        if event.message.type == "text":
+        if (event.message.type == "カレー"):
             actions = []
             actions.append(MessageImagemapAction(
                   text = 'chicken_curry',
@@ -86,5 +86,6 @@ def imagemap(uniqid, size):
     return send_file(img_io, mimetype='image/png')
 
 if __name__ == "__main__":
-    app.debug = True
-    app.run()
+#    app.run()
+    port = int(os.getenv("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)
