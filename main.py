@@ -55,11 +55,11 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     if event.type == "message":
-        if (event.message.text == "施設を選択"):
+        if (event.message.text == "カレー"):
             line_bot_api.reply_message(
                     event.reply_token,
                     TextSendMessage(
-                        text='下に表示されている施設名が書かれた、ボタンをタップして選択してください。'
+                        text='開発中'
                     )
             )
                 
