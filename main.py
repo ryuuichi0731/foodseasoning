@@ -55,7 +55,7 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     if event.type == "message":
-        if event.message.type == "text":
+        if event.message.type == "カレー":
             actions = []
             actions.append(MessageImagemapAction(
                   text = 'chicken_curry',
@@ -86,7 +86,7 @@ def handle_message(event):
 
 @app.route("/imagemap//", methods=['GET'])
 def imagemap(uniqid, size):
-    img = Image.open("./curry_type1.png")
+    img = Image.open("./imagemap.png")
     img_resize = img.resize((int(size), int(size)))
     img_io = io.BytesIO()
     img_resize.save(img_io, 'PNG')
