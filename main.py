@@ -8,7 +8,7 @@ from linebot.exceptions import (
     InvalidSignatureError
 )
 from linebot.models import (
-    MessageEvent, TextMessage, TextSendMessage, MessageImagemapAction, ImagemapArea, ImagemapSendMessage, BaseSize
+    MessageEvent, TextMessage, TextSendMessage, MessageImagemapAction, ImagemapArea, ImagemapSendMessage, BaseSize,
     SourceUser, SourceGroup, SourceRoom,
     TemplateSendMessage, ConfirmTemplate, MessageAction,
     ButtonsTemplate, ImageCarouselTemplate, ImageCarouselColumn, URIAction,
@@ -56,7 +56,7 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     if event.type == "message":
-        if event.message.type == "text":
+        if event.message.type == "スパイスカレー":
             actions = []
             actions.append(MessageImagemapAction(
                   text = 'chicken_curry',
