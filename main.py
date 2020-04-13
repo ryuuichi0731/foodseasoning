@@ -77,7 +77,7 @@ def handle_message(event):
             ))
             
             message = ImagemapSendMessage(
-                base_url = 'https://' + request.host + '/imagemap/' + uuid.uuid4().hex, # prevent cache
+                base_url = 'https://d.kuku.lu/bc5b9d4310' + request.host + '/imagemap/' + uuid.uuid4().hex, # prevent cache
                 alt_text = 'currytype1',
                 base_size = BaseSize(height=460, width=1040),
                 actions = actions
