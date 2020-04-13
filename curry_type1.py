@@ -47,7 +47,7 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     if event.type == "message":
-        if (event.message.type == "カレー"):
+        if (event.message.type == "メニュー"):
             actions = []
             actions.append(MessageImagemapAction(
                   text = 'chicken_curry',
