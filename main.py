@@ -1,41 +1,32 @@
-from flask import Flask, request, abort
+# -*- coding: utf-8 -*-
+import sys
+sys.path.append('./vendor')
+
+import os
+import uuid
+
+from PIL import Image
+import io
+
+from flask import Flask, request, abort, send_file
 
 from linebot import (
-    LineBotApi, WebhookHandler
+    LineBotApi, WebhookHandler,
 )
-
 from linebot.exceptions import (
     InvalidSignatureError
 )
 from linebot.models import (
-    MessageEvent, TextMessage, TextSendMessage, MessageImagemapAction,
-    SourceUser, SourceGroup, SourceRoom,
-    TemplateSendMessage, ConfirmTemplate, MessageAction,
-    ButtonsTemplate, ImageCarouselTemplate, ImageCarouselColumn, URIAction,
-    PostbackAction, DatetimePickerAction,
-    CameraAction, CameraRollAction, LocationAction,
-    CarouselTemplate, CarouselColumn, PostbackEvent,
-    StickerMessage, StickerSendMessage, LocationMessage, LocationSendMessage,
-    ImageMessage, VideoMessage, AudioMessage, FileMessage,
-    UnfollowEvent, FollowEvent, JoinEvent, LeaveEvent, BeaconEvent,
-    FlexSendMessage, BubbleContainer, ImageComponent, BoxComponent,
-    TextComponent, SpacerComponent, IconComponent, ButtonComponent,
-    SeparatorComponent, QuickReply, QuickReplyButton
+    MessageEvent, TextMessage, MessageImagemapAction, ImagemapArea, ImagemapSendMessage, BaseSize
 )
-import os
-import json
 
-#アクセスキーの取得
 app = Flask(__name__)
 
-#環境変数取得
-YOUR_CHANNEL_ACCESS_TOKEN = os.environ["YOUR_CHANNEL_ACCESS_TOKEN"]
-YOUR_CHANNEL_SECRET = os.environ["YOUR_CHANNEL_SECRET"]
+line_bot_api = LineBotApi(os.environ.get('CHANNEL_ACCESS_TOKEN'))
+handler = WebhookHandler(os.environ.get('CHANNEL_SECRET'))
 
-line_bot_api = LineBotApi(YOUR_CHANNEL_ACCESS_TOKEN)
-handler = WebhookHandler(YOUR_CHANNEL_SECRET)
 
-@app.route("/callback", methods=['POST'])
+@app.route("/", methods=['POST'])
 def callback():
     # get X-Line-Signature header value
     signature = request.headers['X-Line-Signature']
@@ -52,10 +43,11 @@ def callback():
 
     return 'OK'
 
+
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     if event.type == "message":
-        if event.message.type == "カレー":
+        if event.message.type == "text":
             actions = []
             actions.append(MessageImagemapAction(
                   text = 'chicken_curry',
@@ -78,7 +70,7 @@ def handle_message(event):
             
             message = ImagemapSendMessage(
                 base_url = 'https://' + request.host + '/imagemap/' + uuid.uuid4().hex, # prevent cache
-                alt_text = 'currytype1',
+                alt_text = '代替テキスト',
                 base_size = BaseSize(height=460, width=1040),
                 actions = actions
             )
@@ -93,11 +85,6 @@ def imagemap(uniqid, size):
     img_io.seek(0)
     return send_file(img_io, mimetype='image/png')
 
-
-
-
-
 if __name__ == "__main__":
-#    app.run()
-    port = int(os.getenv("PORT", 5000))
-    app.run(host="0.0.0.0", port=port)
+    app.debug = True
+    app.run()
