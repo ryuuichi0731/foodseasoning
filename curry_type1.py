@@ -55,7 +55,6 @@ def imagemap(uniqid, size):
     img_io.seek(0)
     return send_file(img_io, mimetype='image/png')
 
-if __name__ == "__main__":
-#    app.run()
-    port = int(os.getenv("PORT", 5000))
-    app.run(host="0.0.0.0", port=port)
+
+if __name__ == '__main__':
+    unittest.main()
