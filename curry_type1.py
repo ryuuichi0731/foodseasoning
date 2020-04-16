@@ -19,27 +19,27 @@ class TestLineBotApi(unittest.TestCase):
         self.tested = LineBotApi('channel_secret')
 
         self.imagemap_message = ImagemapSendMessage(
-            base_url='https://example.com/base',
+            base_url='https://baseurl.com/image/ct01',
             alt_text='this is an imagemap',
-            base_size=BaseSize(height=1040, width=1040),
+            base_size=BaseSize(height=453, width=1040),
             
             actions=[
                 MessageImagemapAction(
                     text='hello',
                     area=ImagemapArea(
-                        x=0, y=0, width=520, height=1040
+                        x=40, y=56, width=313, height=340
                     )
                 ),
                 MessageImagemapAction(
                     text='hello',
                     area=ImagemapArea(
-                        x=520, y=0, width=520, height=1040
+                        x=363, y=59, width=314, height=337
                     )
                 ),
                 MessageImagemapAction(
                     text='hello',
                     area=ImagemapArea(
-                        x=520, y=0, width=520, height=1040
+                        x=690, y=60, width=317, height=335
                     )
                 )
             ]
@@ -50,7 +50,7 @@ class TestLineBotApi(unittest.TestCase):
             "baseUrl": "https://example.com/base",
             "altText": "this is an imagemap",
             "baseSize": {
-                "height": 1040,
+                "height": 453,
                 "width": 1040
             },
             
@@ -59,10 +59,20 @@ class TestLineBotApi(unittest.TestCase):
                     "type": "uri",
                     "text": "hello",
                     "area": {
-                        "x": 0,
-                        "y": 0,
-                        "width": 520,
-                        "height": 1040
+                        "x": 40,
+                        "y": 56,
+                        "width": 313,
+                        "height": 340
+                    }
+                },
+                {
+                    "type": "message",
+                    "text": "hello",
+                    "area": {
+                        "x": 363,
+                        "y": 59,
+                        "width": 314,
+                        "height": 337
                     }
                 },
                 {
@@ -71,18 +81,8 @@ class TestLineBotApi(unittest.TestCase):
                     "area": {
                         "x": 520,
                         "y": 0,
-                        "width": 520,
-                        "height": 1040
-                    }
-                },
-                {
-                    "type": "message",
-                    "text": "hello",
-                    "area": {
-                        "x": 520,
-                        "y": 0,
-                        "width": 520,
-                        "height": 1040
+                        "width": 317,
+                        "height": 335
                     }
                 }
             ]
