@@ -53,7 +53,7 @@ def handle_message(event):
         if event.message.type == “テスト”:
             
             imagemap_message = ImagemapSendMessage(
-                base_url='https://baseurl.com/image/ct01',
+                base_url='https://baseurl.com/exbot/image',
                 alt_text='this is an imagemap',
                 
                 base_size=BaseSize(height=453, width=1040),
