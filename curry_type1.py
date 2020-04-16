@@ -53,7 +53,7 @@ def handle_message(event):
         if event.message.type == “テスト”:
             
             imagemap_message = ImagemapSendMessage(
-                base_url='https://EXAMPLE.CO.JP/imagemap/index01.html',
+                base_url='https://example.com/imagemap/image',
                 alt_text='this is an imagemap',
                 
                 base_size=BaseSize(height=453, width=1040),
