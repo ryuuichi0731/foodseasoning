@@ -80,6 +80,8 @@ def handle_message(event):
             )
             line_bot_api.push_message(event.source.user_id, imagemap_message)
 
-if __name__ == '__main__':
-    unittest.main()
+if __name__ == "__main__":
+#    app.run()
+    port = int(os.getenv("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)
    
