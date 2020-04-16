@@ -91,6 +91,7 @@ class TestLineBotApi(unittest.TestCase):
                     }
                 ]
             }]
+            line_bot_api.reply_message(event.reply_token, message)
 
         @responses.activate
         def test_push_imagemap_message(self):
