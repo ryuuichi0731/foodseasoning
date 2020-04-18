@@ -84,8 +84,8 @@ def handle_message(event):
             ))
             
             message = ImagemapSendMessage(
-                base_url = ‘https://currytype01.fc2.net’ + request.host + ‘/imagemap/’ + uuid.uuid4().hex, # prevent cache
-                alt_text = ‘代替テキスト’,
+                base_url = ‘https://foodseasoning.web.fc2.com/img/images01’ + request.host + ‘/imagemap/’ + uuid.uuid4().hex, # prevent cache
+                alt_text = ‘イメージマップメッセージによるメニューが表示されます’,
                 base_size = BaseSize(height=453, width=1040),
                 actions = actions
             )
