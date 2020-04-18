@@ -62,35 +62,43 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     if event.type == “message”:
-        if event.message.type == “カレーメニュー“:
+        if event.message.type == “カレーメニュー”:
+            actions = []
+            actions.append(MessageImagemapAction(
+                  text = ‘１’,
+                  area = ImagemapArea(
+                      x = 31, y = 49, width = 322, height = 355
+                  )
+            ))
+            actions.append(MessageImagemapAction(
+                  text = ‘２’,
+                  area = ImagemapArea(
+                      x = 360, y = 49, width = 324, height = 365
+                  )
+            ))
+            actions.append(MessageImagemapAction(
+                  text = ‘３’,
+                  area = ImagemapArea(
+                      x = 689, y = 42, width = 316, height = 368
+                  )
+            ))
             
-            imagemap_message = ImagemapSendMessage(
-                base_url=‘https://currytype01.fc2.net/’,
-                alt_text=‘this is an imagemap’,
-                
-                base_size=BaseSize(height=453, width=1040),
-                actions=[
-                    MessageImagemapAction(
-                        text=‘hello’,
-                        area=ImagemapArea(
-                            x=35, y=60, width=310, height=335
-                        )
-                    ),
-                    MessageImagemapAction(
-                        text=‘hello’,
-                        area=ImagemapArea(
-                            x=365, y=60, width=310, height=335
-                        )
-                    ),
-                    MessageImagemapAction(
-                        text=‘hello’,
-                        area=ImagemapArea(
-                            x=690, y=60, width=310, height=335
-                        )
-                    )
-                ]
+            message = ImagemapSendMessage(
+                base_url = ‘https://currytype01.fc2.net’ + request.host + ‘/imagemap/’ + uuid.uuid4().hex, # prevent cache
+                alt_text = ‘代替テキスト’,
+                base_size = BaseSize(height=453, width=1040),
+                actions = actions
             )
-            line_bot_api.push_message(event.source.user_id, imagemap_message)
+            line_bot_api.reply_message(event.reply_token, message)
+
+@app.route(“/imagemap//“, methods=[‘GET’])
+def imagemap(uniqid, size):
+    img = Image.open(“./imagemap.png”)
+    img_resize = img.resize((int(size), int(size)))
+    img_io = io.BytesIO()
+    img_resize.save(img_io, ‘PNG’)
+    img_io.seek(0)
+    return send_file(img_io, mimetype=‘image/png’)
                 
                 
 if __name__ == "__main__":
