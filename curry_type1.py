@@ -49,36 +49,24 @@ def callback():
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-    if event.type == “message”:
-        if event.message.type == “curryメニュー”:
-            
-            imagemap_message = ImagemapSendMessage(
-                base_url='https://currytype01.fc2.net/',
-                alt_text='this is an imagemap',
-                
-                base_size=BaseSize(height=453, width=1040),
-                actions=[
-                    MessageImagemapAction(
-                        text='hello',
-                        area=ImagemapArea(
-                            x=35, y=60, width=310, height=335
-                        )
-                    ),
-                    MessageImagemapAction(
-                        text='hello',
-                        area=ImagemapArea(
-                            x=365, y=60, width=310, height=335
-                        )
-                    ),
-                    MessageImagemapAction(
-                        text='hello',
-                        area=ImagemapArea(
-                            x=690, y=60, width=310, height=335
-                        )
-                    )
-                ]
-            )
-            line_bot_api.push_message(event.source.user_id, imagemap_message)
+    if event.type == "message":
+        if (event.message.text == "施設を選択"):
+            line_bot_api.reply_message(
+                    event.reply_token,
+                    TextSendMessage(
+                        text='下に表示されている施設名が書かれた、ボタンをタップして選択してください。',
+                        quick_reply=QuickReply(
+                            items=[
+                                QuickReplyButton(
+                                    action=MessageAction(label="ショッピングセンター", text="Shopping center")
+                        ),
+                                QuickReplyButton(
+                                    action=MessageAction(label="科学技術センター", text="Science & Technology center")
+                        ),
+                                QuickReplyButton(
+                                    action=MessageAction(label="情報文化センター", text="Media & Communication center")
+                        ),
+                    ])))
             
             
             
