@@ -8,12 +8,20 @@ from linebot.exceptions import (
     InvalidSignatureError
 )
 from linebot.models import (
-    MessageEvent, TextMessage, TextSendMessage,
-    ImagemapArea,
-    ImagemapSendMessage,
-    URIImagemapAction,
-    MessageImagemapAction,
-    Video, BaseSize, ExternalLink,
+    MessageEvent, TextMessage, TextSendMessage, MessageImagemapAction,
+    SourceUser, SourceGroup, SourceRoom,
+    TemplateSendMessage, ConfirmTemplate, MessageAction,
+    ButtonsTemplate, ImageCarouselTemplate, ImageCarouselColumn, URIAction,
+    PostbackAction, DatetimePickerAction,
+    CameraAction, CameraRollAction, LocationAction,
+    CarouselTemplate, CarouselColumn, PostbackEvent,
+    StickerMessage, StickerSendMessage, LocationMessage, LocationSendMessage,
+    ImageMessage, VideoMessage, AudioMessage, FileMessage,
+    UnfollowEvent, FollowEvent, JoinEvent, LeaveEvent, BeaconEvent,
+    FlexSendMessage, BubbleContainer, ImageComponent, BoxComponent,
+    TextComponent, SpacerComponent, IconComponent, ButtonComponent,
+    SeparatorComponent, QuickReply, QuickReplyButton, 
+    
 )
 import os
 import json
@@ -45,49 +53,22 @@ def callback():
 
     return 'OK'
 
-#ここからーーー ーーー 
-
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     if event.type == "message":
-        if (event.message.text == "施設を選択"):
+        if (event.message.text == "テスト"):
             line_bot_api.reply_message(
                     event.reply_token,
                     TextSendMessage(
-                        text='下に表示されている施設名が書かれた、ボタンをタップして選択してください。',
-                        quick_reply=QuickReply(
-                            items=[
-                                QuickReplyButton(
-                                    action=MessageAction(label="ショッピングセンター", text="Shopping center")
-                        ),
-                                QuickReplyButton(
-                                    action=MessageAction(label="科学技術センター", text="Science & Technology center")
-                        ),
-                                QuickReplyButton(
-                                    action=MessageAction(label="情報文化センター", text="Media & Communication center")
-                        ),
-                    ])))
-            
-            
-            
-    message_content = line_bot_api.get_message_content(event.message.id)
-    with tempfile.NamedTemporaryFile(dir=static_tmp_path, prefix=ext + '-', delete=False) as tf:
-        for chunk in message_content.iter_content():
-            tf.write(chunk)
-        tempfile_path = tf.name
-
-    dist_path = tempfile_path + '.' + ext
-    dist_name = os.path.basename(dist_path)
-    os.rename(tempfile_path, dist_path)
-
-    line_bot_api.reply_message(
-        event.reply_token, [
-            TextSendMessage(text='Save content.'),
-            TextSendMessage(text=request.host_url + os.path.join('static', 'tmp', dist_name))
-        ])
-
-
+                        text='テストだよ'
+                    )
+            )
+                
+                
 if __name__ == "__main__":
 #    app.run()
     port = int(os.getenv("PORT", 5000))
     app.run(host="0.0.0.0", port=port)
+
+   
+    
