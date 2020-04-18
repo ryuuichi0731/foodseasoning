@@ -1,42 +1,32 @@
-from flask import Flask, request, abort
+# -*- coding: utf-8 -*-
+import sys
+sys.path.append('./vendor')
+
+import os
+import uuid
+
+from PIL import Image
+import io
+
+from flask import Flask, request, abort, send_file
 
 from linebot import (
-    LineBotApi, WebhookHandler
+    LineBotApi, WebhookHandler,
 )
-
 from linebot.exceptions import (
     InvalidSignatureError
 )
 from linebot.models import (
-    MessageEvent, TextMessage, TextSendMessage, MessageImagemapAction,
-    SourceUser, SourceGroup, SourceRoom,
-    TemplateSendMessage, ConfirmTemplate, MessageAction,
-    ButtonsTemplate, ImageCarouselTemplate, ImageCarouselColumn, URIAction,
-    PostbackAction, DatetimePickerAction,
-    CameraAction, CameraRollAction, LocationAction,
-    CarouselTemplate, CarouselColumn, PostbackEvent,
-    StickerMessage, StickerSendMessage, LocationMessage, LocationSendMessage,
-    ImageMessage, VideoMessage, AudioMessage, FileMessage,
-    UnfollowEvent, FollowEvent, JoinEvent, LeaveEvent, BeaconEvent,
-    FlexSendMessage, BubbleContainer, ImageComponent, BoxComponent,
-    TextComponent, SpacerComponent, IconComponent, ButtonComponent,
-    SeparatorComponent, QuickReply, QuickReplyButton, ImagemapArea,ImagemapSendMessage,
-    URIImagemapAction, MessageImagemapAction, Video, BaseSize, ExternalLink,
+    MessageEvent, TextMessage, MessageImagemapAction, ImagemapArea, ImagemapSendMessage, BaseSize
 )
-import os
-import json
 
-#アクセスキーの取得
 app = Flask(__name__)
 
-#環境変数取得
-YOUR_CHANNEL_ACCESS_TOKEN = os.environ["i902NfQKjb+No9Cmmrd+n5Zyrq4jZ8msx1RuG80KN9cYddzt/fgcSsB5B5Bj78+43MLiZOAd7zAAzz381t83Lefhjpk5V9sGIGZJzmOhgK51Rr/rNv9h7AZ911Pn0RLdjsNBjCSdycUMsFznpKcgwAdB04t89/1O/w1cDnyilFU="]
-YOUR_CHANNEL_SECRET = os.environ["5600f21c984f16ef30586eef1e3d86ee"]
+line_bot_api = LineBotApi(os.environ.get('CHANNEL_ACCESS_TOKEN'))
+handler = WebhookHandler(os.environ.get('CHANNEL_SECRET'))
 
-line_bot_api = LineBotApi(YOUR_CHANNEL_ACCESS_TOKEN)
-handler = WebhookHandler(YOUR_CHANNEL_SECRET)
 
-@app.route("/callback", methods=['POST'])
+@app.route("/", methods=['POST'])
 def callback():
     # get X-Line-Signature header value
     signature = request.headers['X-Line-Signature']
@@ -53,36 +43,48 @@ def callback():
 
     return 'OK'
 
+
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-    if event.type == “message”:
-        if event.message.type == “カレーメニュー”:
-            'base_url': 'https://foodseasoning.web.fc2.com/img/images01',
-            'alt_text': 'This is an imagemap',
-            'base_size': BaseSize(width=1040, height=453),
+    if event.type == "message":
+        if event.message.type == "text":
+            actions = []
+            actions.append(MessageImagemapAction(
+                  text = '１',
+                  area = ImagemapArea(
+                      x = 31, y = 49, width = 322, height = 355
+                  )
+            ))
+            actions.append(MessageImagemapAction(
+                  text = '２',
+                  area = ImagemapArea(
+                      x = 360, y = 49, width = 324, height = 365
+                  )
+            ))
+            actions.append(MessageImagemapAction(
+                  text = '３',
+                  area = ImagemapArea(
+                      x = 689, y = 42, width = 316, height = 368
+                  )
+            ))
             
-            'actions': [
-                MessageImagemapAction(
-                    text='Hey',
-                    area=ImagemapArea(x=30, y=50, width=320, height=355)
-                ),
-                MessageImagemapAction(
-                    text='Hey',
-                    area=ImagemapArea(x=360, y=50, width=320, height=355)
-                ),
-                MessageImagemapAction(
-                    text='Hey',
-                    area=ImagemapArea(x=690, y=50, width=320, height=355)
-                )
-            ]
-        }
-        self.assertEqual(
-            self.serialize_as_dict(arg, type=self.IMAGEMAP),
-            ImagemapSendMessage(**arg).as_json_dict()
-        )           
-                
-if __name__ == "__main__":
-#    app.run()
-    port = int(os.getenv("PORT", 5000))
-    app.run(host="0.0.0.0", port=port)
+            message = ImagemapSendMessage(
+                base_url = 'https://' + request.host + '/imagemap/' + uuid.uuid4().hex, # prevent cache
+                alt_text = '代替テキスト',
+                base_size = BaseSize(height=453, width=1040),
+                actions = actions
+            )
+            line_bot_api.reply_message(event.reply_token, message)
 
+@app.route("/imagemap//", methods=['GET'])
+def imagemap(uniqid, size):
+    img = Image.open("./imagemap.png")
+    img_resize = img.resize((int(size), int(size)))
+    img_io = io.BytesIO()
+    img_resize.save(img_io, 'PNG')
+    img_io.seek(0)
+    return send_file(img_io, mimetype='image/png')
+
+if __name__ == "__main__":
+    app.debug = True
+    app.run()
