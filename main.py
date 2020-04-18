@@ -54,14 +54,36 @@ def callback():
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-    if event.type == "message":
-        if (event.message.text == "カレー"):
-            line_bot_api.reply_message(
-                    event.reply_token,
-                    TextSendMessage(
-                        text='開発中'
+    if event.type == “message”:
+        if event.message.type == “カレーメニュー“:
+            
+            imagemap_message = ImagemapSendMessage(
+                base_url=‘https://currytype01.fc2.net/’,
+                alt_text=‘this is an imagemap’,
+                
+                base_size=BaseSize(height=453, width=1040),
+                actions=[
+                    MessageImagemapAction(
+                        text=‘hello’,
+                        area=ImagemapArea(
+                            x=35, y=60, width=310, height=335
+                        )
+                    ),
+                    MessageImagemapAction(
+                        text=‘hello’,
+                        area=ImagemapArea(
+                            x=365, y=60, width=310, height=335
+                        )
+                    ),
+                    MessageImagemapAction(
+                        text=‘hello’,
+                        area=ImagemapArea(
+                            x=690, y=60, width=310, height=335
+                        )
                     )
+                ]
             )
+            line_bot_api.push_message(event.source.user_id, imagemap_message)
                 
                 
 if __name__ == "__main__":
