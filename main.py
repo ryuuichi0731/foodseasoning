@@ -60,6 +60,11 @@ def callback():
 def handle_message(event):
     if event.type == "message":
         if (event.message.text == "カレーメニュー"):
+            
+            TextSendMessage(
+                    text='画像メニューから自分好みのカレーを選んでね。', 
+                )
+            
             imagemap_message = ImagemapSendMessage(
   
                 base_url='https://foodseasoning.web.fc2.com/img/images01',
@@ -92,14 +97,7 @@ def handle_message(event):
             line_bot_api.push_message(event.source.user_id, imagemap_message)
             
     
-    elif text == 'カレーメニュー' :
-        line_bot_api.reply_message(
-                event.reply_token,
-                TextSendMessage(
-                    text='画像メニューから自分好みのカレーを選んでね。', 
-                )
-        )
-
+    
 #ここまで------                  
                 
     message_content = line_bot_api.get_message_content(event.message.id)
