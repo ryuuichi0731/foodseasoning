@@ -96,7 +96,8 @@ def handle_message(event):
             line_bot_api.reply_message(
                     event.reply_token,
                     TextSendMessage(
-                        text='画像メニューから自分好みのカレーを選んでね。',）
+                        text='画像メニューから自分好みのカレーを選んでね。', 
+                    )
 
 #ここまで------                  
                 
