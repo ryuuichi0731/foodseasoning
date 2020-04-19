@@ -91,13 +91,13 @@ def handle_message(event):
             )
             line_bot_api.push_message(event.source.user_id, imagemap_message)
             
-    if event.type == "message":
-        if (event.message.text == "カレーメニュー"):
-            line_bot_api.reply_message(
-                    event.reply_token,
-                    TextSendMessage(
-                        text='画像メニューから自分好みのカレーを選んでね。', 
-                    )
+    
+    elif text == 'カレーメニュー' :
+        line_bot_api.reply_message(
+                event.reply_token,
+                TextSendMessage(
+                    text='画像メニューから自分好みのカレーを選んでね。', 
+                )
 
 #ここまで------                  
                 
