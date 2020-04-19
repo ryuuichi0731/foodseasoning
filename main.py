@@ -98,6 +98,7 @@ def handle_message(event):
                 TextSendMessage(
                     text='画像メニューから自分好みのカレーを選んでね。', 
                 )
+        )
 
 #ここまで------                  
                 
