@@ -60,10 +60,9 @@ def callback():
 def handle_message(event):
     if event.type == "message":
         if (event.message.text == "カレーメニュー"):
-            
             TextSendMessage(
-                    text='画像メニューから自分好みのカレーを選んでね。', 
-                )
+                text='画像メニューから自分好みのカレーを選んでね。', 
+            ),
             
             imagemap_message = ImagemapSendMessage(
   
