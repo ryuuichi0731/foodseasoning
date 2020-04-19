@@ -64,25 +64,25 @@ def handle_message(event):
   
                 base_url='https://foodseasoning.web.fc2.com/img/images01',
   
-                alt_text='this is an imagemap',
+                alt_text='curry_imagemap_no.01',
   
                 base_size=BaseSize(height=453, width=1040),
   
                 actions=[
                     MessageImagemapAction(
-                        text='hello',
+                        text='chicken_curry',
                         area=ImagemapArea(
                             x=30, y=50, width=320, height=355
                         )
                     ),
                     MessageImagemapAction(
-                        text='hello',
+                        text='green_curry',
                         area=ImagemapArea(
                             x=360, y=50, width=320, height=355
                         )
                     ),
                     MessageImagemapAction(
-                        text='hello',
+                        text='keema_curry',
                         area=ImagemapArea(
                             x=690, y=50, width=320, height=355
                         )
