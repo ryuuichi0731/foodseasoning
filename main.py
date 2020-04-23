@@ -93,9 +93,9 @@ def handle_message(event):
                     )
                 ]
             )
-            line_bot_api.push_message(event.source.user_id, imagemap_message)
+            line_bot_api.push_message(event.source.user_id, imagemap_message),
             
-    if text == 'chicken_curry':
+    elif text == 'chicken_curry':
         bubble = BubbleContainer(
             direction='ltr',
             hero=ImageComponent(
@@ -120,6 +120,10 @@ def handle_message(event):
                                 size='sm',    
                                 flex=1     
                             ),
+                        ],
+                    ),
+                ],
+            ),
                             footer=BoxComponent(
                                 layout='vertical',
                                 spacing='sm',
@@ -135,15 +139,15 @@ def handle_message(event):
                                         style='text',
                                         height='sm',
                                         action=MessageAction(label='次へ進む', text="next_chicken_curry")
-                                    )
+                                    ),
                                 ]
-                            )
-                            )
-                            message = FlexSendMessage(alt_text="curry_menu_CC", contents=bubble)
-                            line_bot_api.reply_message(
-                                event.reply_token,
-                                message
-                            )
+                            ),
+        )
+        message = FlexSendMessage(alt_text="curry_menu_CC", contents=bubble)
+        line_bot_api.reply_message(
+            event.reply_token, 
+            message
+                           
            
 #ここまで------ 
 
