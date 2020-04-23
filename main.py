@@ -103,7 +103,7 @@ def handle_message(event):
                 size='full',
                 aspect_ratio='20:13',
                 aspect_mode='cover',
-                
+            ),
             body=BoxComponent(
                 layout='vertical',
                 contents=[
@@ -111,40 +111,39 @@ def handle_message(event):
                     TextComponent(text='チキンカレー', weight='bold', size='xl'),
                      # material
                     BoxComponent(
-                                layout='baseline',
+                        layout='baseline',
+                        spacing='sm',  
+                        contents=[                              
+                            TextComponent(  
+                                text='材料\n　・鶏モモ肉\n　・タマネギ\n　・シメジ\n　・トマトソース（お好きな調味料）\n　・水\n　・オリーブオイル\n　・バター\n　・カレー（お好きなスパイス、ハーブ）',
+                                color='#aaaaaa',     
+                                size='sm',    
+                                flex=1     
+                            ),
+                            footer=BoxComponent(
+                                layout='vertical',
                                 spacing='sm',
                                 contents=[
-                                    TextComponent(
-                                        text='材料\n　・鶏モモ肉\n　・タマネギ\n　・シメジ\n　・トマトソース（お好きな調味料）\n　・水\n　・オリーブオイル\n　・バター\n　・カレー（お好きなスパイス、ハーブ）',
-                                        color='#aaaaaa',
-                                        size='sm',
-                                        flex=1
+                                    SpacerComponent(size='sm'),
+                                    ButtonComponent(
+                                        style='text',
+                                        height='sm',
+                                        action=MessageAction(label='選びなおす', text='cancel_chicken_curry'),
                                     ),
-                footer=BoxComponent(
-                    layout='vertical',
-                    spacing='sm',
-                    contents=[
-                        SpacerComponent(size='sm'),
-                        ButtonComponent(
-                            style='text',
-                            height='sm',
-                            action=MessageAction(label='選びなおす', text='cancel_chicken_curry'),
-                        ),
-                        SeparatorComponent(),
-                        ButtonComponent(
-                            style='text',
-                            height='sm',
-                            action=MessageAction(label='次へ進む', text="next_chicken_curry")
-                        )
-                    ]
-                )
-                                    
-        )
-        message = FlexSendMessage(alt_text="curry_menu_CC", contents=bubble)
-        line_bot_api.reply_message(
-            event.reply_token,
-            message
-        )
+                                    SeparatorComponent(),
+                                    ButtonComponent(
+                                        style='text',
+                                        height='sm',
+                                        action=MessageAction(label='次へ進む', text="next_chicken_curry")
+                                    )
+                                ]
+                            )
+                            )
+                            message = FlexSendMessage(alt_text="curry_menu_CC", contents=bubble)
+                            line_bot_api.reply_message(
+                                event.reply_token,
+                                message
+                            )
            
 #ここまで------ 
 
