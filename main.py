@@ -93,7 +93,7 @@ def handle_message(event):
                     )
                 ]
             )
-            line_bot_api.push_message(event.source.user_id, imagemap_message),
+            line_bot_api.push_message(event.source.user_id, imagemap_message)
             
     if (event.message.text == "chicken_curry"):
         bubble = BubbleContainer(
@@ -121,7 +121,7 @@ def handle_message(event):
                                 flex=1     
                             ),
                         ],
-                    ),
+                    )
                 ],
             ),
                             footer=BoxComponent(
