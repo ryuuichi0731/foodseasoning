@@ -95,10 +95,8 @@ def handle_message(event):
             )
             line_bot_api.push_message(event.source.user_id, imagemap_message)
             
-    if event.type == "message":
-        if (event.message.text == "chicken_curry"):
-            
-            bubble = BubbleContainer(
+    elif text == 'chicken_curry':
+        bubble = BubbleContainer(
             direction='ltr',
             hero=ImageComponent(
                 url='https://images.unsplash.com/photo-1585937421612-70a008356fbe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
@@ -139,7 +137,7 @@ def handle_message(event):
                             action=MessageAction(label='次へ進む', text="next_chicken_curry")
                         )
                     ]
-                ),
+                )
                                     
         )
         message = FlexSendMessage(alt_text="curry_menu_CC", contents=bubble)
