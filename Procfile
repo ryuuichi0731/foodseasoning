@@ -1,2 +1,1 @@
-web: python imagemap.py,
-web: python main.py
+web: python imagemap.py, main.py
