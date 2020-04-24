@@ -167,15 +167,15 @@ def handle_message(event):
                 contents=[
                     SpacerComponent(size='sm'),
                     ButtonComponent(
-                        style='text',
+                        style='message',
                         height='sm',
-                        action=MessageAction(label='次へ進む', text='chicken_curry_cancel'),
+                        action=MessageAction(label='次へ進む', text='chicken_curry_next'),
                     ),
                     SeparatorComponent(),
                     ButtonComponent(
-                        style='text',
+                        style='message',
                         height='sm',
-                        action=MessageAction(label='カレーを選びなおす', text="chicken_curry_de")
+                        action=MessageAction(label='カレーを選びなおす', text="chicken_curry_cancel")
                     )
                 ]
                 ),
