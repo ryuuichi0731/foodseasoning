@@ -169,13 +169,13 @@ def handle_message(event):
                     ButtonComponent(
                         style='text',
                         height='sm',
-                        action=MessageAction(label='CALL', text='chicken_curry_cancel'),
+                        action=MessageAction(label='次へ進む', text='chicken_curry_cancel'),
                     ),
                     SeparatorComponent(),
                     ButtonComponent(
                         style='text',
                         height='sm',
-                        action=MessageAction(label='WEBSITE', text="chicken_curry_de")
+                        action=MessageAction(label='カレーを選びなおす', text="chicken_curry_de")
                     )
                 ]
                 ),
