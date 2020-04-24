@@ -100,7 +100,7 @@ def handle_message(event):
             bubble = BubbleContainer(
                 direction='ltr',
                 hero=ImageComponent(
-                    url='https://images.unsplash.com/photo-1585937421612-70a008356fbe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60'',
+                    url='https://images.unsplash.com/photo-1585937421612-70a008356fbe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
                     size='full',
                     aspect_ratio='20:13',
                     aspect_mode='cover',
