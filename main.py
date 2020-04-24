@@ -100,31 +100,17 @@ def handle_message(event):
             bubble = BubbleContainer(
                 direction='ltr',
                 hero=ImageComponent(
-                    url='https://example.com/cafe.jpg',
+                    url='https://images.unsplash.com/photo-1585937421612-70a008356fbe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60'',
                     size='full',
                     aspect_ratio='20:13',
                     aspect_mode='cover',
-                    action=URIAction(uri='http://example.com', label='label')
                 ),
                 body=BoxComponent(
                     layout='vertical',
                     contents=[
                     # title
-                        TextComponent(text='Brown Cafe', weight='bold', size='xl'),
-                    # review
-                        BoxComponent(
-                            layout='baseline',
-                            margin='md',
-                            contents=[
-                                IconComponent(size='sm', url='https://example.com/gold_star.png'),
-                                IconComponent(size='sm', url='https://example.com/grey_star.png'),
-                                IconComponent(size='sm', url='https://example.com/gold_star.png'),
-                                IconComponent(size='sm', url='https://example.com/gold_star.png'),
-                                IconComponent(size='sm', url='https://example.com/grey_star.png'),
-                                TextComponent(text='4.0', size='sm', color='#999999', margin='md',
-                                              flex=0)
-                            ]
-                        ),
+                        TextComponent(text='チキンカレー', weight='bold', size='xl'),
+                    
                     # info
                         BoxComponent(
                             layout='vertical',
@@ -136,13 +122,13 @@ def handle_message(event):
                                     spacing='sm',
                                     contents=[
                                         TextComponent(
-                                            text='Place',
+                                            text='材料名',
                                             color='#aaaaaa',
                                             size='sm',
                                             flex=1
                                         ),
                                         TextComponent(
-                                            text='Shinjuku, Tokyo',
+                                            text='・鶏モモ肉\n　・タマネギ\n　・シメジ\n　・水\n　・オリーブオイル\n　・バター',
                                             wrap=True,
                                             color='#666666',
                                             size='sm',
@@ -155,13 +141,13 @@ def handle_message(event):
                                     spacing='sm',
                                     contents=[
                                         TextComponent(
-                                            text='Time',
+                                            text='調味料・スパイス',
                                             color='#aaaaaa',
                                             size='sm',
                                             flex=1
                                         ),
                                         TextComponent(
-                                            text="10:00 - 23:00",
+                                            text="・トマトソース（お好きな調味料から）\n　・カレー（お好きなスパイス、ハーブから）",
                                             wrap=True,
                                             color='#666666',
                                             size='sm',
@@ -183,7 +169,7 @@ def handle_message(event):
                         ButtonComponent(
                             style='link',
                             height='sm',
-                            action=URIAction(label='CALL', uri='tel:000000'),
+                            action=MessageAction(label='選びなおす', text='chicken_curry_cancel！'),
                         ),
                     # separator
                         SeparatorComponent(),
@@ -191,7 +177,7 @@ def handle_message(event):
                         ButtonComponent(
                             style='link',
                             height='sm',
-                            action=URIAction(label='WEBSITE', uri="https://example.com")
+                            action=MessageAction(label='次へ進む', text="chicken_curry_decision！")
                         )
                     ]
                 ),
