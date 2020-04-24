@@ -138,9 +138,9 @@ def handle_message(event):
                                         )
                                     ],
                                 ),
-                                \n
+                                
                                 SeparatorComponent(),
-                                \n
+                                
                                 BoxComponent(
                                     layout='baseline',
                                     spacing='sm',
@@ -164,6 +164,8 @@ def handle_message(event):
                         )
                     ],
                 ),
+                 SeparatorComponent(),
+                
                 footer=BoxComponent(
                 layout='vertical',
                 spacing='sm',
@@ -174,7 +176,6 @@ def handle_message(event):
                         height='sm',
                         action=MessageAction(label='次へ進む', text='chicken_curry_next'),
                     ),
-                    SeparatorComponent(),
                     ButtonComponent(
                         style='secondary',
                         height='sm',
