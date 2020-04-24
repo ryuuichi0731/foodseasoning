@@ -96,7 +96,7 @@ def handle_message(event):
             line_bot_api.push_message(event.source.user_id, imagemap_message)
 #チキンカレー_flex            
     if event.type == "message":
-        if (event.message.text == "chiken_curry"):
+        if (event.message.text == "chicken_curry"):
             bubble = BubbleContainer(
                 direction='ltr',
                 hero=ImageComponent(
