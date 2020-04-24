@@ -110,6 +110,8 @@ def handle_message(event):
                     contents=[
                     # title
                         TextComponent(text='チキンカレー', weight='bold', size='xl'),
+                        
+                        SeparatorComponent(),
                     
                     # info
                         BoxComponent(
@@ -136,8 +138,9 @@ def handle_message(event):
                                         )
                                     ],
                                 ),
+                                \n
                                 SeparatorComponent(),
-                                
+                                \n
                                 BoxComponent(
                                     layout='baseline',
                                     spacing='sm',
@@ -173,7 +176,7 @@ def handle_message(event):
                     ),
                     SeparatorComponent(),
                     ButtonComponent(
-                        style='primary',
+                        style='secondary',
                         height='sm',
                         action=MessageAction(label='カレーを選びなおす', text="chicken_curry_cancel")
                     )
