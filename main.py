@@ -184,7 +184,191 @@ def handle_message(event):
             )
 
             
-#チキンカレー_flex         
+#チキンカレー_flex 
+
+#グリーンカレー_flex            
+    if event.type == "message":
+        if (event.message.text == "green_curry"):
+            bubble = BubbleContainer(
+                direction='ltr',
+                hero=ImageComponent(
+                    url='https://images.unsplash.com/photo-1560684352-8497838a2229?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60',
+                    size='full',
+                    aspect_ratio='20:13',
+                    aspect_mode='cover',
+                ),
+                body=BoxComponent(
+                    layout='vertical',
+                    contents=[
+                    # title
+                        TextComponent(text='グリーンカレー', weight='bold', size='xl'),
+                    # info
+                        BoxComponent(
+                            layout='vertical',
+                            margin='lg',
+                            spacing='sm',
+                            contents=[
+                                BoxComponent(
+                                    layout='baseline',
+                                    spacing='sm',
+                                    contents=[
+                                        TextComponent(
+                                            text='材料名',
+                                            color='#aaaaaa',
+                                            size='sm',
+                                            flex=1
+                                        ),
+                                        TextComponent(
+                                            text=' ①鶏モモ肉\n ②タマネギ\n ③ほうれん草\n ④ナス\n ⑤エリンギ\n ⑥豆乳\n ⑦オリーブオイル',
+                                            wrap=True,
+                                            color='#666666',
+                                            size='sm',
+                                            flex=5
+                                        )
+                                    ],
+                                ),
+                                BoxComponent(
+                                    layout='baseline',
+                                    spacing='sm',
+                                    contents=[
+                                        TextComponent(
+                                            text='spice',
+                                            color='#aaaaaa',
+                                            size='sm',
+                                            flex=1
+                                        ),
+                                        TextComponent(
+                                            text=" ⑦お好きな調味料\n　（グリーンペースト）\n ⑧お好きなスパイス",
+                                            wrap=True,
+                                            color='#666666',
+                                            size='sm',
+                                            flex=5,
+                                        ),
+                                    ],
+                                ),
+                            ],
+                        )
+                    ],
+                ),
+                footer=BoxComponent(
+                layout='vertical',
+                spacing='sm',
+                contents=[
+                    SpacerComponent(size='sm'),
+                    ButtonComponent(
+                        style='primary',
+                        height='sm',
+                        action=MessageAction(label='次へ進む', text='chicken_curry_next'),
+                    ),
+                    SeparatorComponent(),
+                    ButtonComponent(
+                        style='secondary',
+                        height='sm',
+                        action=MessageAction(label='カレーを選びなおす', text="chicken_curry_cancel")
+                    )
+                ]
+                ),
+            )
+            message = FlexSendMessage(alt_text="hello", contents=bubble)
+            line_bot_api.reply_message(
+                event.reply_token,
+                message
+            )
+
+            
+#グリーンカレー_flex
+
+#キーマカレー_flex            
+    if event.type == "message":
+        if (event.message.text == "green_curry"):
+            bubble = BubbleContainer(
+                direction='ltr',
+                hero=ImageComponent(
+                    url='https://images.unsplash.com/photo-1532768907235-78653b7dc71d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80',
+                    size='full',
+                    aspect_ratio='20:13',
+                    aspect_mode='cover',
+                ),
+                body=BoxComponent(
+                    layout='vertical',
+                    contents=[
+                    # title
+                        TextComponent(text='キーマカレー', weight='bold', size='xl'),
+                    # info
+                        BoxComponent(
+                            layout='vertical',
+                            margin='lg',
+                            spacing='sm',
+                            contents=[
+                                BoxComponent(
+                                    layout='baseline',
+                                    spacing='sm',
+                                    contents=[
+                                        TextComponent(
+                                            text='材料名',
+                                            color='#aaaaaa',
+                                            size='sm',
+                                            flex=1
+                                        ),
+                                        TextComponent(
+                                            text=' ①豚挽肉\n ②ピーマン\n ③赤ピーマン\n ④タマネギ\n ⑤ニンジン\n ⑥コーン\n ⑦水\n ⑧オリーブオイル',
+                                            wrap=True,
+                                            color='#666666',
+                                            size='sm',
+                                            flex=5
+                                        )
+                                    ],
+                                ),
+                                BoxComponent(
+                                    layout='baseline',
+                                    spacing='sm',
+                                    contents=[
+                                        TextComponent(
+                                            text='spice',
+                                            color='#aaaaaa',
+                                            size='sm',
+                                            flex=1
+                                        ),
+                                        TextComponent(
+                                            text=" ⑦お好きな調味料\n　（味噌ソース）\n ⑧お好きなスパイス",
+                                            wrap=True,
+                                            color='#666666',
+                                            size='sm',
+                                            flex=5,
+                                        ),
+                                    ],
+                                ),
+                            ],
+                        )
+                    ],
+                ),
+                footer=BoxComponent(
+                layout='vertical',
+                spacing='sm',
+                contents=[
+                    SpacerComponent(size='sm'),
+                    ButtonComponent(
+                        style='primary',
+                        height='sm',
+                        action=MessageAction(label='次へ進む', text='chicken_curry_next'),
+                    ),
+                    SeparatorComponent(),
+                    ButtonComponent(
+                        style='secondary',
+                        height='sm',
+                        action=MessageAction(label='カレーを選びなおす', text="chicken_curry_cancel")
+                    )
+                ]
+                ),
+            )
+            message = FlexSendMessage(alt_text="hello", contents=bubble)
+            line_bot_api.reply_message(
+                event.reply_token,
+                message
+            )
+
+            
+#キーマカレー_flex
             
             
     message_content = line_bot_api.get_message_content(event.message.id)
