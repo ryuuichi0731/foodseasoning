@@ -188,7 +188,7 @@ def handle_message(event):
 
 #グリーンカレー_flex            
     if event.type == "message":
-        if (event.message.text == "green_curry"):
+        if (event.message.text == "keema_curry"):
             bubble = BubbleContainer(
                 direction='ltr',
                 hero=ImageComponent(
