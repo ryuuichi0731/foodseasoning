@@ -110,9 +110,6 @@ def handle_message(event):
                     contents=[
                     # title
                         TextComponent(text='チキンカレー', weight='bold', size='xl'),
-                        
-                        SeparatorComponent(),
-                    
                     # info
                         BoxComponent(
                             layout='vertical',
@@ -138,9 +135,7 @@ def handle_message(event):
                                         )
                                     ],
                                 ),
-                                
                                 SeparatorComponent(),
-                                
                                 BoxComponent(
                                     layout='baseline',
                                     spacing='sm',
@@ -165,7 +160,6 @@ def handle_message(event):
                     ],
                 ),
                  SeparatorComponent(),
-                
                 footer=BoxComponent(
                 layout='vertical',
                 spacing='sm',
