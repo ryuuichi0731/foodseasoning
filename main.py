@@ -146,7 +146,7 @@ def handle_message(event):
                                             flex=1
                                         ),
                                         TextComponent(
-                                            text=" ⑦お好きな調味料\n　（トマトソース）　（＋）\n ⑧お好きなスパイス",
+                                            text=" ⑦お好きな調味料\n　（トマトソース）\n ⑧お好きなスパイス",
                                             wrap=True,
                                             color='#666666',
                                             size='sm',
