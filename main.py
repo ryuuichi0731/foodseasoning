@@ -59,7 +59,7 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     if event.type == "message":
-        if (event.message.text == "カレーメニュー"):
+        if (event.message.text == "カレーメニュー") or (event.message.text == "chicken_curry_cancel") or (event.message.text == "green_curry_cancel") or (event.message.text == "keema_curry_cancel"):
             TextSendMessage(
                 text='画像メニューから自分好みのカレーを選んでね。',
             ),
@@ -188,7 +188,7 @@ def handle_message(event):
 
 #グリーンカレー_flex            
     if event.type == "message":
-        if (event.message.text == "keema_curry"):
+        if (event.message.text == "green_curry"):
             bubble = BubbleContainer(
                 direction='ltr',
                 hero=ImageComponent(
@@ -258,13 +258,13 @@ def handle_message(event):
                     ButtonComponent(
                         style='primary',
                         height='sm',
-                        action=MessageAction(label='次へ進む', text='chicken_curry_next'),
+                        action=MessageAction(label='次へ進む', text='green_curry_next'),
                     ),
                     SeparatorComponent(),
                     ButtonComponent(
                         style='secondary',
                         height='sm',
-                        action=MessageAction(label='カレーを選びなおす', text="chicken_curry_cancel")
+                        action=MessageAction(label='カレーを選びなおす', text="green_curry_cancel")
                     )
                 ]
                 ),
@@ -280,7 +280,7 @@ def handle_message(event):
 
 #キーマカレー_flex            
     if event.type == "message":
-        if (event.message.text == "green_curry"):
+        if (event.message.text == "keema_curry"):
             bubble = BubbleContainer(
                 direction='ltr',
                 hero=ImageComponent(
@@ -350,13 +350,13 @@ def handle_message(event):
                     ButtonComponent(
                         style='primary',
                         height='sm',
-                        action=MessageAction(label='次へ進む', text='chicken_curry_next'),
+                        action=MessageAction(label='次へ進む', text='keema_curry_next'),
                     ),
                     SeparatorComponent(),
                     ButtonComponent(
                         style='secondary',
                         height='sm',
-                        action=MessageAction(label='カレーを選びなおす', text="chicken_curry_cancel")
+                        action=MessageAction(label='カレーを選びなおす', text="keema_curry_cancel")
                     )
                 ]
                 ),
@@ -365,9 +365,7 @@ def handle_message(event):
             line_bot_api.reply_message(
                 event.reply_token,
                 message
-            )
-
-            
+            )          
 #キーマカレー_flex
             
             
