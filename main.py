@@ -128,7 +128,7 @@ def handle_message(event):
                                             flex=1
                                         ),
                                         TextComponent(
-                                            text='・鶏モモ肉\n ・タマネギ\n ・シメジ\n ・水\n ・オリーブオイル\n　・バター',
+                                            text='・鶏モモ肉\n ・タマネギ\n ・シメジ\n ・水\n ・オリーブオイル\n ・バター',
                                             wrap=True,
                                             color='#666666',
                                             size='sm',
@@ -136,18 +136,20 @@ def handle_message(event):
                                         )
                                     ],
                                 ),
+                                SeparatorComponent(),
+                                
                                 BoxComponent(
                                     layout='baseline',
                                     spacing='sm',
                                     contents=[
                                         TextComponent(
-                                            text='スパイス',
+                                            text='spice',
                                             color='#aaaaaa',
                                             size='sm',
                                             flex=1
                                         ),
                                         TextComponent(
-                                            text="・トマトソース（お好きな調味料）\n ・カレー（お好きなスパイス、ハーブ）",
+                                            text="・トマトソース（お好きな調味料）\n ・お好きなスパイス",
                                             wrap=True,
                                             color='#666666',
                                             size='sm',
@@ -163,21 +165,17 @@ def handle_message(event):
                 layout='vertical',
                 spacing='sm',
                 contents=[
-                    # callAction, separator, websiteAction
                     SpacerComponent(size='sm'),
-                    # callAction
                     ButtonComponent(
-                        style='link',
+                        style='text',
                         height='sm',
-                        action=URIAction(label='CALL', uri='tel:000000'),
+                        action=MessageAction(label='CALL', text='chicken_curry_cancel'),
                     ),
-                    # separator
                     SeparatorComponent(),
-                    # websiteAction
                     ButtonComponent(
-                        style='link',
+                        style='text',
                         height='sm',
-                        action=URIAction(label='WEBSITE', uri="https://example.com")
+                        action=MessageAction(label='WEBSITE', text="chicken_curry_de")
                     )
                 ]
                 ),
