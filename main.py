@@ -284,7 +284,7 @@ def handle_message(event):
             bubble = BubbleContainer(
                 direction='ltr',
                 hero=ImageComponent(
-                    url='https://images.unsplash.com/photo-1532768907235-78653b7dc71d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80',
+                    url='https://production-orp.s3.amazonaws.com/uploads/recipes/image/0000300319/20160801160506.jpg',
                     size='full',
                     aspect_ratio='20:13',
                     aspect_mode='cover',
