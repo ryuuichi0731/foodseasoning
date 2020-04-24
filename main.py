@@ -127,7 +127,7 @@ def handle_message(event):
                                             flex=1
                                         ),
                                         TextComponent(
-                                            text='・鶏モモ肉\n ・タマネギ\n ・シメジ\n ・水\n ・オリーブオイル\n ・バター',
+                                            text='①鶏モモ肉\n ②タマネギ\n ③シメジ\n ④水\n ⑤オリーブオイル\n ⑥バター',
                                             wrap=True,
                                             color='#666666',
                                             size='sm',
@@ -146,7 +146,7 @@ def handle_message(event):
                                             flex=1
                                         ),
                                         TextComponent(
-                                            text="・トマトソース（お好きな調味料）\n ・お好きなスパイス",
+                                            text=" ⑦トマトソース（お好きな調味料）\n ⑧お好きなスパイス",
                                             wrap=True,
                                             color='#666666',
                                             size='sm',
