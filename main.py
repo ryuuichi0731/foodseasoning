@@ -94,6 +94,111 @@ def handle_message(event):
                 ]
             )
             line_bot_api.push_message(event.source.user_id, imagemap_message)
+            
+#menu01_imagemap
+def handle_message(event):
+    if event.type == "message":
+        if (event.message.text == "スパイスメニュー"):
+            TextSendMessage(
+                text='画像メニューから自分好みのブレンドスパイスを選んでね。',
+            ),
+
+            imagemap_message = ImagemapSendMessage(
+
+                base_url='https://foodseasoning.web.fc2.com/img/menu01',
+
+                alt_text='spice_imagemap_no.02',
+
+                base_size=BaseSize(height=1040, width=1040),
+
+                actions=[
+                    #A
+                    MessageImagemapAction(
+                        text='spice_type_A',
+                        area=ImagemapArea(
+                            x=40, y=10, width=220, height=340
+                        )
+                    ),
+                    #B
+                    MessageImagemapAction(
+                        text='spice_type_B',
+                        area=ImagemapArea(
+                            x=280, y=10, width=220, height=340
+                        )
+                    ),
+                    #C
+                    MessageImagemapAction(
+                        text='spice_type_C',
+                        area=ImagemapArea(
+                            x=590, y=10, width=220, height=340
+                        )
+                    ),
+                    #D
+                    MessageImagemapAction(
+                        text='spice_type_D',
+                        area=ImagemapArea(
+                            x=790, y=10, width=220, height=340
+                        )
+                    ),
+                    #E
+                    MessageImagemapAction(
+                        text='spice_type_E',
+                        area=ImagemapArea(
+                            x=40, y=340, width=220, height=340
+                        )
+                    ),
+                    #F
+                    MessageImagemapAction(
+                        text='spice_type_F',
+                        area=ImagemapArea(
+                            x=290, y=350, width=220, height=340
+                        )
+                    ),
+                    #G
+                    MessageImagemapAction(
+                        text='spice_type_G',
+                        area=ImagemapArea(
+                            x=540, y=350, width=220, height=340
+                        )
+                    ),
+                    #H
+                    MessageImagemapAction(
+                        text='spice_type_H',
+                        area=ImagemapArea(
+                            x=760, y=350, width=220, height=340
+                        )
+                    ),
+                    #I
+                    MessageImagemapAction(
+                        text='spice_type_I',
+                        area=ImagemapArea(
+                            x=50, y=700, width=220, height=340
+                        )
+                    ), 
+                    #J
+                    MessageImagemapAction(
+                        text='spice_type_J',
+                        area=ImagemapArea(
+                            x=290, y=700, width=220, height=340
+                        )
+                    ),
+                    #K
+                    MessageImagemapAction(
+                        text='spice_type_K',
+                        area=ImagemapArea(
+                            x=530, y=690, width=220, height=340
+                        )
+                    ),
+                    #L
+                    MessageImagemapAction(
+                        text='spice_type_L',
+                        area=ImagemapArea(
+                            x=770, y=690, width=220, height=340
+                        )
+                    ),
+                ]
+            )
+            line_bot_api.push_message(event.source.user_id, imagemap_message)
 #チキンカレー_flex            
     if event.type == "message":
         if (event.message.text == "chicken_curry"):
