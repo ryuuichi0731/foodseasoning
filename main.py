@@ -96,7 +96,6 @@ def handle_message(event):
             line_bot_api.push_message(event.source.user_id, imagemap_message)
             
 #menu01_imagemap
-def handle_message(event):
     if event.type == "message":
         if (event.message.text == "スパイスメニュー"):
             TextSendMessage(
