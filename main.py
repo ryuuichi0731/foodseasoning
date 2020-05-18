@@ -194,10 +194,11 @@ def handle_message(event):
                         area=ImagemapArea(
                             x=770, y=690, width=220, height=340
                         )
-                    ),
+                    )
                 ]
             )
             line_bot_api.push_message(event.source.user_id, imagemap_message)
+            
 #チキンカレー_flex            
     if event.type == "message":
         if (event.message.text == "chicken_curry"):
