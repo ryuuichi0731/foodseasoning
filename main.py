@@ -113,25 +113,43 @@ def handle_message(event):
                     MessageImagemapAction(
                         text='spice_clove',
                         area=ImagemapArea(
-                            x=0, y=10, width=150, height=320
+                            x=0, y=10, width=160, height=330
                         )
                     ),
                     MessageImagemapAction(
                         text='spice_cinnamon',
                         area=ImagemapArea(
-                            x=160, y=10, width=170, height=320
+                            x=160, y=0, width=160, height=330
                         )
                     ),
                     MessageImagemapAction(
                         text='spice_cumin',
                         area=ImagemapArea(
-                            x=330, y=10, width=170, height=320
+                            x=330, y=0, width=160, height=330
                         )
                     ),
                     MessageImagemapAction(
                         text='spice_tougarashi',
                         area=ImagemapArea(
                             x=860, y=10, width=170, height=320
+                        )
+                    ),
+                    MessageImagemapAction(
+                        text='spice_blackpepper',
+                        area=ImagemapArea(
+                            x=510, y=10, width=170, height=320
+                        )
+                    ),
+                    MessageImagemapAction(
+                        text='spice_mace',
+                        area=ImagemapArea(
+                            x=690, y=0, width=170, height=320
+                        )
+                    ),
+                    MessageImagemapAction(
+                        text='spice_tougarashi',
+                        area=ImagemapArea(
+                            x=860, y=0, width=170, height=320
                         )
                     ),
                     MessageImagemapAction(
@@ -149,7 +167,7 @@ def handle_message(event):
                     MessageImagemapAction(
                         text='spice_allspice',
                         area=ImagemapArea(
-                            x=340, y=340, width=170, height=320
+                            x=330, y=340, width=170, height=320
                         )
                     ),
                     MessageImagemapAction(
@@ -161,25 +179,13 @@ def handle_message(event):
                     MessageImagemapAction(
                         text='spice_greencardamon',
                         area=ImagemapArea(
-                            x=340, y=340, width=170, height=320
+                            x=680, y=340, width=170, height=320
                         )
                     ),
                     MessageImagemapAction(
                         text='spice_coriander',
                         area=ImagemapArea(
-                            x=680, y=340, width=170, height=320
-                        )
-                    ),
-                    MessageImagemapAction(
-                        text='spice_blackpepper',
-                        area=ImagemapArea(
-                            x=870, y=340, width=170, height=320
-                        )
-                    ),
-                    MessageImagemapAction(
-                        text='spice_mace',
-                        area=ImagemapArea(
-                            x=520, y=10, width=170, height=320
+                            x=860, y=340, width=170, height=320
                         )
                     )
                 ]
