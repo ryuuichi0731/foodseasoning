@@ -107,7 +107,7 @@ def handle_message(event):
 
                 alt_text='powder_spice_img',
 
-                base_size=BaseSize(height=700, width=1040),
+                base_size=BaseSize(height=750, width=1040),
 
                 actions=[
                     MessageImagemapAction(
