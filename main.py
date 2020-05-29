@@ -95,147 +95,97 @@ def handle_message(event):
             )
             line_bot_api.push_message(event.source.user_id, imagemap_message)
             
-#img_c
+#img_powder
     if event.type == "message":
-        if (event.message.text == "chicken_curry_next"):
+        if (event.message.text == "chicken_curry_next") or (event.message.text == "green_curry_next") or (event.message.text == "keema_curry_next"):
             TextSendMessage(
-                text='画像メニューから自分好みのブレンドスパイスを選んでね。',
+                text='画像メニューから自分好みのスパイスを選んでね。',
             ),
-
             imagemap_message = ImagemapSendMessage(
 
-                base_url='https://foodseasoning.web.fc2.com/img/cc_img',
+                base_url='https://foodseasoning.web.fc2.com/img/powder_img',
 
-                alt_text='spice_imagemap_no.02',
+                alt_text='powder_spice_img',
 
-                base_size=BaseSize(height=492, width=1040),
+                base_size=BaseSize(height=677, width=1040),
 
                 actions=[
-                    #A
                     MessageImagemapAction(
-                        text='spice_type_A',
+                        text='spice_clove',
                         area=ImagemapArea(
-                            x=40, y=105, width=230, height=380
+                            x=0, y=10, width=150, height=320
                         )
                     ),
-                    #B
                     MessageImagemapAction(
-                        text='spice_type_B',
+                        text='spice_cinnamon',
                         area=ImagemapArea(
-                            x=275, y=105, width=230, height=380
+                            x=160, y=10, width=170, height=320
                         )
                     ),
-                    #C
                     MessageImagemapAction(
-                        text='spice_type_C',
+                        text='spice_cumin',
                         area=ImagemapArea(
-                            x=530, y=105, width=230, height=380
+                            x=330, y=10, width=170, height=320
                         )
                     ),
-                    #D
                     MessageImagemapAction(
-                        text='spice_type_D',
+                        text='spice_tougarashi',
                         area=ImagemapArea(
-                            x=775, y=105, width=230, height=380
+                            x=860, y=10, width=170, height=320
+                        )
+                    ),
+                    MessageImagemapAction(
+                        text='spice_bigcardamon',
+                        area=ImagemapArea(
+                            x=0, y=340, width=170, height=320
+                        )
+                    ),
+                    MessageImagemapAction(
+                        text='spice_nutmeg',
+                        area=ImagemapArea(
+                            x=160, y=340, width=170, height=320
+                        )
+                    ),
+                    MessageImagemapAction(
+                        text='spice_allspice',
+                        area=ImagemapArea(
+                            x=340, y=340, width=170, height=320
+                        )
+                    ),
+                    MessageImagemapAction(
+                        text='spice_bayleaf',
+                        area=ImagemapArea(
+                            x=510, y=340, width=170, height=320
+                        )
+                    ),
+                    MessageImagemapAction(
+                        text='spice_greencardamon',
+                        area=ImagemapArea(
+                            x=340, y=340, width=170, height=320
+                        )
+                    ),
+                    MessageImagemapAction(
+                        text='spice_coriander',
+                        area=ImagemapArea(
+                            x=680, y=340, width=170, height=320
+                        )
+                    ),
+                    MessageImagemapAction(
+                        text='spice_blackpepper',
+                        area=ImagemapArea(
+                            x=870, y=340, width=170, height=320
+                        )
+                    ),
+                    MessageImagemapAction(
+                        text='spice_mace',
+                        area=ImagemapArea(
+                            x=520, y=10, width=170, height=320
                         )
                     )
                 ]
             )
-            line_bot_api.push_message(event.source.user_id, imagemap_message)
-#img_g
-    if event.type == "message":
-        if (event.message.text == "green_curry_next"):
-            TextSendMessage(
-                text='画像メニューから自分好みのブレンドスパイスを選んでね。',
-            ),
+            line_bot_api.push_message(event.source.user_id, imagemap_message)            
 
-            imagemap_message = ImagemapSendMessage(
-
-                base_url='https://foodseasoning.web.fc2.com/img/gc_img',
-
-                alt_text='spice_imagemap_no.02',
-
-                base_size=BaseSize(height=492, width=1040),
-
-                actions=[
-                    #E
-                    MessageImagemapAction(
-                        text='spice_type_A',
-                        area=ImagemapArea(
-                            x=40, y=105, width=230, height=380
-                        )
-                    ),
-                    #F
-                    MessageImagemapAction(
-                        text='spice_type_B',
-                        area=ImagemapArea(
-                            x=275, y=105, width=230, height=380
-                        )
-                    ),
-                    #G
-                    MessageImagemapAction(
-                        text='spice_type_C',
-                        area=ImagemapArea(
-                            x=530, y=105, width=230, height=380
-                        )
-                    ),
-                    #H
-                    MessageImagemapAction(
-                        text='spice_type_D',
-                        area=ImagemapArea(
-                            x=775, y=105, width=230, height=380
-                        )
-                    )
-                ]
-            )
-            line_bot_api.push_message(event.source.user_id, imagemap_message)
-#img_k
-    if event.type == "message":
-        if (event.message.text == "keema_curry_next"):
-            TextSendMessage(
-                text='画像メニューから自分好みのブレンドスパイスを選んでね。',
-            ),
-
-            imagemap_message = ImagemapSendMessage(
-
-                base_url='https://foodseasoning.web.fc2.com/img/kc_img',
-
-                alt_text='spice_imagemap_no.02',
-
-                base_size=BaseSize(height=492, width=1040),
-
-                actions=[
-                    #A
-                    MessageImagemapAction(
-                        text='spice_type_A',
-                        area=ImagemapArea(
-                            x=40, y=105, width=230, height=380
-                        )
-                    ),
-                    #B
-                    MessageImagemapAction(
-                        text='spice_type_B',
-                        area=ImagemapArea(
-                            x=275, y=105, width=230, height=380
-                        )
-                    ),
-                    #C
-                    MessageImagemapAction(
-                        text='spice_type_C',
-                        area=ImagemapArea(
-                            x=530, y=105, width=230, height=380
-                        )
-                    ),
-                    #D
-                    MessageImagemapAction(
-                        text='spice_type_D',
-                        area=ImagemapArea(
-                            x=775, y=105, width=230, height=380
-                        )
-                    )
-                ]
-            )
-            line_bot_api.push_message(event.source.user_id, imagemap_message)
             
 #チキンカレー_flex            
     if event.type == "message":
