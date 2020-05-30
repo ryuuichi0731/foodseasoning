@@ -190,7 +190,40 @@ def handle_message(event):
                     )
                 ]
             )
-            line_bot_api.push_message(event.source.user_id, imagemap_message)  
+            line_bot_api.push_message(event.source.user_id, imagemap_message)
+#spice_dic            
+    if event.type == "message":
+        if (event.message.text == "chicken_curry_next") or (event.message.text == "green_curry_next") or (event.message.text == "keema_curry_next"):
+            TextSendMessage(
+                text='Yes or NO',
+            ),
+
+            imagemap_message = ImagemapSendMessage(
+
+                base_url='https://foodseasoning.web.fc2.com/img/spice_dic',
+
+                alt_text='spice_dic',
+
+                base_size=BaseSize(height=223, width=1040),
+
+                actions=[
+                    MessageImagemapAction(
+                        text='spice_yes',
+                        area=ImagemapArea(
+                            x=0, y=0, width=520, height=223
+                        )
+                    ),
+                    MessageImagemapAction(
+                        text='spice_cancel',
+                        area=ImagemapArea(
+                            x=520, y=0, width=520, height=223
+                        )
+                    )
+                ]
+            )
+            line_bot_api.push_message(event.source.user_id, imagemap_message)
+            
+            
             
 #クイックリプライ（spice_g）
 #def spice_quantity
