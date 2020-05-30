@@ -103,12 +103,13 @@ def make_image_message():
                 original_content_url="https://foodseasoning.web.fc2.com/img/ex_02/240.png", 
                 preview_image_url="https://https://foodseasoning.web.fc2.com/img/ex_02/1024.png" 
             )
+            return messages
             
             messages = make_image_messages()
             line_bot_api.reply_message(
                 event.reply_token,
                 messages)
-    return messages
+    
             
 #img_powder
     if event.type == "message":
