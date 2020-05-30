@@ -190,7 +190,76 @@ def handle_message(event):
                     )
                 ]
             )
-            line_bot_api.push_message(event.source.user_id, imagemap_message)            
+            line_bot_api.push_message(event.source.user_id, imagemap_message)  
+            
+#クイックリプライ（spice_1/2）
+    if event.type == "message":
+        if (event.message.text == "spice_clove") or (event.message.text == "spice_allspice") or (event.message.text == "spice_nutmeg") or (event.message.text == "spice_cinnamon") or (event.message.text == "spice_bigcardamon") or (event.message.text == "spice_mace") or (event.message.text == "spice_bayleaf"):
+            line_bot_api.reply_message(
+                    event.reply_token,
+                    TextSendMessage(
+                        text='ブレンドする量を選択してください',
+                        quick_reply=QuickReply(
+                            items=[
+                                QuickReplyButton(
+                                    action=MessageAction(label="小さじ1/2", text="spice_小さじ1/2")
+                        ),
+                    ])))
+    if event.type == "message":
+        if (event.message.text == "spice_blackpepper") or (event.message.text == "spice_tougarashi"):
+            line_bot_api.reply_message(
+                    event.reply_token,
+                    TextSendMessage(
+                        text='ブレンドする量を選択してください',
+                        quick_reply=QuickReply(
+                            items=[
+                                QuickReplyButton(
+                                    action=MessageAction(label="小さじ1/2", text="spice_小さじ1/2")
+                        ),
+                                QuickReplyButton(
+                                    action=MessageAction(label="小さじ1", text="spice_小さじ1")
+                        ),
+                    ])))
+    if event.type == "message":
+        if (event.message.text == "spice_greencardamon"):
+            line_bot_api.reply_message(
+                    event.reply_token,
+                    TextSendMessage(
+                        text='ブレンドする量を選択してください',
+                        quick_reply=QuickReply(
+                            items=[
+                                QuickReplyButton(
+                                    action=MessageAction(label="小さじ1/2", text="spice_小さじ1/2")
+                        ),
+                                QuickReplyButton(
+                                    action=MessageAction(label="小さじ1", text="spice_小さじ1")
+                        ),
+                                QuickReplyButton(
+                                    action=MessageAction(label="小さじ2", text="spice_小さじ2")
+                        ),
+                    ])))
+    if event.type == "message":
+        if (event.message.text == "spice_cumin") or (event.message.text == "spice_coriander"):
+            line_bot_api.reply_message(
+                    event.reply_token,
+                    TextSendMessage(
+                        text='ブレンドする量を選択してください',
+                        quick_reply=QuickReply(
+                            items=[
+                                QuickReplyButton(
+                                    action=MessageAction(label="小さじ1/2", text="spice_小さじ1/2")
+                        ),
+                                QuickReplyButton(
+                                    action=MessageAction(label="小さじ1", text="spice_小さじ1")
+                        ),
+                                QuickReplyButton(
+                                    action=MessageAction(label="小さじ2", text="spice_小さじ2")
+                        ),
+                                QuickReplyButton(
+                                    action=MessageAction(label="小さじ4", text="spice_小さじ4")
+                        ),
+                    ])))
+
 
             
 #チキンカレー_flex            
