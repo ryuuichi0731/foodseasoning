@@ -95,22 +95,6 @@ def handle_message(event):
             )
             line_bot_api.push_message(event.source.user_id, imagemap_message)
             
-            
-def make_image_message():
-    if event.type == "message":
-        if (event.message.text == "chicken_curry_next") or (event.message.text == "green_curry_next") or (event.message.text == "keema_curry_next")
-            messages = ImageSendMessage(
-                original_content_url="https://foodseasoning.web.fc2.com/img/ex_02/240.png", 
-                preview_image_url="https://https://foodseasoning.web.fc2.com/img/ex_02/1024.png" 
-            )
-            return messages
-            
-            messages = make_image_messages()
-            line_bot_api.reply_message(
-                event.reply_token,
-                messages)
-    
-            
 #img_powder
     if event.type == "message":
         if (event.message.text == "chicken_curry_next") or (event.message.text == "green_curry_next") or (event.message.text == "keema_curry_next"):
