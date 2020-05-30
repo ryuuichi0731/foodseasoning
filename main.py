@@ -192,7 +192,8 @@ def handle_message(event):
             )
             line_bot_api.push_message(event.source.user_id, imagemap_message)  
             
-#クイックリプライ（spice_1/2）
+#クイックリプライ（spice_g）
+#def spice_quantity
     if event.type == "message":
         if (event.message.text == "spice_clove") or (event.message.text == "spice_allspice") or (event.message.text == "spice_nutmeg") or (event.message.text == "spice_cinnamon") or (event.message.text == "spice_bigcardamon") or (event.message.text == "spice_mace") or (event.message.text == "spice_bayleaf"):
             line_bot_api.reply_message(
@@ -259,6 +260,7 @@ def handle_message(event):
                                     action=MessageAction(label="小さじ4", text="spice_小さじ4")
                         ),
                     ])))
+            
 
 
             
