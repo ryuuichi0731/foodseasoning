@@ -106,7 +106,7 @@ def make_image_message():
             messages = ImageSendMessage(
                 original_content_url="https://foodseasoning.web.fc2.com/img/ex_02/240_02.png", 
                 preview_image_url="https://https://foodseasoning.web.fc2.com/img/ex_02/1024_02.png" 
-            )
+            ),
     return messages
             
 #img_powder
