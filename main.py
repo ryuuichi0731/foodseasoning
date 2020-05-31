@@ -223,6 +223,62 @@ def handle_message(event):
             )
             line_bot_api.push_message(event.source.user_id, imagemap_message)
             
+#spice_flavor_ring            
+    if event.type == "message":
+        if (event.message.text == "spice_yes"):
+            TextSendMessage(
+                text='flavor_ring',
+            ),
+
+            imagemap_message = ImagemapSendMessage(
+
+                base_url='https://foodseasoning.web.fc2.com/img/s.f.h',
+
+                alt_text='spice_flavor_ring',
+
+                base_size=BaseSize(height=995, width=1040),
+
+                actions=[
+                    MessageImagemapAction(
+                        text='spicy_flavor',
+                        area=ImagemapArea(
+                            x=100, y=500, width=280, height=210
+                        )
+                    ),
+                    MessageImagemapAction(
+                        text='sweet_flavor',
+                        area=ImagemapArea(
+                            x=390, y=60, width=240, height=230
+                        )
+                    ),
+                    MessageImagemapAction(
+                        text='fresh_flavor',
+                        area=ImagemapArea(
+                            x=650, y=280, width=270, height=210
+                        )
+                    ),
+                    MessageImagemapAction(
+                        text='bitter_flavor',
+                        area=ImagemapArea(
+                            x=380, y=710, width=260, height=240
+                        )
+                    ),
+                    MessageImagemapAction(
+                        text='hot_flavor',
+                        area=ImagemapArea(
+                            x=110, y=250, width=250, height=240
+                        )
+                    ),
+                    MessageImagemapAction(
+                        text='herb_flavor',
+                        area=ImagemapArea(
+                            x=650, y=500, width=270, height=210
+                        )
+                    )
+                ]
+            )
+            line_bot_api.push_message(event.source.user_id, imagemap_message)
+            
             
             
 #クイックリプライ（spice_g）
