@@ -194,7 +194,7 @@ def handle_message(event):
 
 #spice_flavor_ring            
     if event.type == "message":
-        if (event.message.text == "02_I'm Done") or if (event.message.text == "Whole Spice"):
+        if (event.message.text == "02_I'm Done") or (event.message.text == "Whole Spice"):
             TextSendMessage(
                 text='flavor_ring',
             ),
