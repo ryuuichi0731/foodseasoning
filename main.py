@@ -193,7 +193,7 @@ def handle_message(event):
             line_bot_api.push_message(event.source.user_id, imagemap_message)
 #spice_dic            
     if event.type == "message":
-        if (event.message.text == "chicken_curry_next") or (event.message.text == "green_curry_next") or (event.message.text == "keema_curry_next"):
+        if (event.message.text == "chicken_curry_next") or (event.message.text == "green_curry_next") or (event.message.text == "keema_curry_next") or (event.message.text == "spice_yes"):
             TextSendMessage(
                 text='Yes or NO',
             ),
