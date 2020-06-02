@@ -97,7 +97,7 @@ def handle_message(event):
             
 #img_powder
     if event.type == "message":
-        if (event.message.text == "chicken_curry_next") or (event.message.text == "green_curry_next") or (event.message.text == "keema_curry_next") or (event.message.text == "01_I'm Done"):
+        if (event.message.text == "chicken_curry_next") or (event.message.text == "green_curry_next") or (event.message.text == "keema_curry_next") or (event.message.text == "01_I'm Done") or (event.message.text == "Powder Spice"):
             TextSendMessage(
                 text='画像メニューから自分好みのスパイスを選んでね。',
             ),
@@ -194,7 +194,7 @@ def handle_message(event):
 
 #spice_flavor_ring            
     if event.type == "message":
-        if (event.message.text == "02_I'm Done"):
+        if (event.message.text == "02_I'm Done") or if (event.message.text == "Whole Spice"):
             TextSendMessage(
                 text='flavor_ring',
             ),
