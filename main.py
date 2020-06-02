@@ -279,7 +279,365 @@ def handle_message(event):
             )
             line_bot_api.push_message(event.source.user_id, imagemap_message)
             
+    #hall_spice_sweet
+    if event.type == "message":
+        if (event.message.text == "sweet_flavor"):
+            TextSendMessage(
+                text='flavor_ring',
+            ),
+
+            imagemap_message = ImagemapSendMessage(
+
+                base_url='https://foodseasoning.web.fc2.com/img/hall_spice/sweet',
+
+                alt_text='spice_flavor_ring',
+
+                base_size=BaseSize(height=994, width=1040),
+
+                actions=[
+                    MessageImagemapAction(
+                        text='sweet_1',
+                        area=ImagemapArea(
+                            x = 61, y = 40, width = 293, height = 296
+                        )
+                    ),
+                    MessageImagemapAction(
+                        text='sweet_2',
+                        area=ImagemapArea(
+                            x = 366, y = 42, width = 304, height = 296
+                        )
+                    ),
+                    MessageImagemapAction(
+                        text='sweet_3',
+                        area=ImagemapArea(
+                            x = 681, y = 45, width = 304, height = 291
+                        )
+                    ),
+                    MessageImagemapAction(
+                        text='sweet_4',
+                        area=ImagemapArea(
+                            x = 61, y = 355, width = 289, height = 291
+                        )
+                    ),
+                    MessageImagemapAction(
+                        text='sweet_5',
+                        area=ImagemapArea(
+                            x = 366, y = 356, width = 304, height = 291
+                        )
+                    ),
+                    MessageImagemapAction(
+                        text='sweet_6',
+                        area=ImagemapArea(
+                            x = 677, y = 351, width = 314, height = 305
+                        )
+                    ),
+                    MessageImagemapAction(
+                        text='sweet_7',
+                        area=ImagemapArea(
+                            x = 50, y = 660, width = 309, height = 299
+                        )
+                    ),
+                    MessageImagemapAction(
+                        text='sweet_8',
+                        area=ImagemapArea(
+                            x = 369, y = 661, width = 304, height = 298
+                        )
+                    ),
+                    MessageImagemapAction(
+                        text='sweet_9',
+                        area=ImagemapArea(
+                            x = 680, y = 661, width = 320, height = 296
+                        )
+                    )
+                ]
+            )
+            line_bot_api.push_message(event.source.user_id, imagemap_message)
             
+#hall_spice_spicy
+    if event.type == "message":
+        if (event.message.text == "spicy_flavor"):
+            TextSendMessage(
+                text='flavor_ring',
+            ),
+
+            imagemap_message = ImagemapSendMessage(
+
+                base_url='https://foodseasoning.web.fc2.com/img/hall_spice/spicy',
+
+                alt_text='spice_flavor_ring',
+
+                base_size=BaseSize(height=773, width=1040),
+
+                actions=[
+                    MessageImagemapAction(
+                        text='spicy_1',
+                        area=ImagemapArea(
+                            x = 61, y = 40, width = 293, height = 296
+                        )
+                    ),
+                    MessageImagemapAction(
+                        text='spicy_2',
+                        area=ImagemapArea(
+                            x = 366, y = 42, width = 304, height = 296
+                        )
+                    ),
+                    MessageImagemapAction(
+                        text='spicy_3',
+                        area=ImagemapArea(
+                            x = 681, y = 45, width = 304, height = 291
+                        )
+                    )
+                ]
+            )
+            line_bot_api.push_message(event.source.user_id, imagemap_message)
+            
+            
+    #hall_spice_hot
+    if event.type == "message":
+        if (event.message.text == "hot_flavor"):
+            TextSendMessage(
+                text='flavor_ring',
+            ),
+
+            imagemap_message = ImagemapSendMessage(
+
+                base_url='https://foodseasoning.web.fc2.com/img/hall_spice/hot',
+
+                alt_text='spice_flavor_ring',
+
+                base_size=BaseSize(height=994, width=1040),
+
+                actions=[
+                    MessageImagemapAction(
+                        text='hot_1',
+                        area=ImagemapArea(
+                            x = 61, y = 40, width = 293, height = 296
+                        )
+                    ),
+                    MessageImagemapAction(
+                        text='hot_2',
+                        area=ImagemapArea(
+                            x = 366, y = 42, width = 304, height = 296
+                        )
+                    ),
+                    MessageImagemapAction(
+                        text='hot_3',
+                        area=ImagemapArea(
+                            x = 681, y = 45, width = 304, height = 291
+                        )
+                    ),
+                    MessageImagemapAction(
+                        text='hot_4',
+                        area=ImagemapArea(
+                            x = 61, y = 355, width = 289, height = 291
+                        )
+                    ),
+                    MessageImagemapAction(
+                        text='hot_5',
+                        area=ImagemapArea(
+                            x = 366, y = 356, width = 304, height = 291
+                        )
+                    ),
+                    MessageImagemapAction(
+                        text='hot_6',
+                        area=ImagemapArea(
+                            x = 677, y = 351, width = 314, height = 305
+                        )
+                    )
+                ]
+            )
+            line_bot_api.push_message(event.source.user_id, imagemap_message)
+            
+            
+    #hall_spice_harbr
+    if event.type == "message":
+        if (event.message.text == "harbr_flavor"):
+            TextSendMessage(
+                text='flavor_ring',
+            ),
+
+            imagemap_message = ImagemapSendMessage(
+
+                base_url='https://foodseasoning.web.fc2.com/img/hall_spice/harbr',
+
+                alt_text='spice_flavor_ring',
+
+                base_size=BaseSize(height=957, width=1040),
+
+                actions=[
+                    MessageImagemapAction(
+                        text='harbr_1',
+                        area=ImagemapArea(
+                            x = 61, y = 40, width = 293, height = 296
+                        )
+                    ),
+                    MessageImagemapAction(
+                        text='harbr_2',
+                        area=ImagemapArea(
+                            x = 366, y = 42, width = 304, height = 296
+                        )
+                    ),
+                    MessageImagemapAction(
+                        text='harbr_3',
+                        area=ImagemapArea(
+                            x = 681, y = 45, width = 304, height = 291
+                        )
+                    ),
+                    MessageImagemapAction(
+                        text='harbr_4',
+                        area=ImagemapArea(
+                            x = 61, y = 355, width = 289, height = 291
+                        )
+                    ),
+                    MessageImagemapAction(
+                        text='harbr_5',
+                        area=ImagemapArea(
+                            x = 366, y = 356, width = 304, height = 291
+                        )
+                    ),
+                    MessageImagemapAction(
+                        text='harbr_6',
+                        area=ImagemapArea(
+                            x = 677, y = 351, width = 314, height = 305
+                        )
+                    )
+                ]
+            )
+            line_bot_api.push_message(event.source.user_id, imagemap_message)
+            
+            
+    #hall_spice_fresh
+    if event.type == "message":
+        if (event.message.text == "fresh_flavor"):
+            TextSendMessage(
+                text='flavor_ring',
+            ),
+
+            imagemap_message = ImagemapSendMessage(
+
+                base_url='https://foodseasoning.web.fc2.com/img/hall_spice/fresh',
+
+                alt_text='spice_flavor_ring',
+
+                base_size=BaseSize(height=992, width=1040),
+
+                actions=[
+                    MessageImagemapAction(
+                        text='fresh_1',
+                        area=ImagemapArea(
+                            x = 61, y = 40, width = 293, height = 296
+                        )
+                    ),
+                    MessageImagemapAction(
+                        text='fresh_2',
+                        area=ImagemapArea(
+                            x = 366, y = 42, width = 304, height = 296
+                        )
+                    ),
+                    MessageImagemapAction(
+                        text='fresh_3',
+                        area=ImagemapArea(
+                            x = 681, y = 45, width = 304, height = 291
+                        )
+                    ),
+                    MessageImagemapAction(
+                        text='fresh_4',
+                        area=ImagemapArea(
+                            x = 61, y = 355, width = 289, height = 291
+                        )
+                    ),
+                    MessageImagemapAction(
+                        text='fresh_5',
+                        area=ImagemapArea(
+                            x = 366, y = 356, width = 304, height = 291
+                        )
+                    ),
+                    MessageImagemapAction(
+                        text='fresh_6',
+                        area=ImagemapArea(
+                            x = 677, y = 351, width = 314, height = 305
+                        )
+                    ),
+                    MessageImagemapAction(
+                        text='fresh_7',
+                        area=ImagemapArea(
+                            x = 50, y = 660, width = 309, height = 299
+                        )
+                    )
+                ]
+            )
+            line_bot_api.push_message(event.source.user_id, imagemap_message)
+            
+            
+    #hall_spice_bitter
+    if event.type == "message":
+        if (event.message.text == "bitter_flavor"):
+            TextSendMessage(
+                text='flavor_ring',
+            ),
+
+            imagemap_message = ImagemapSendMessage(
+
+                base_url='https://foodseasoning.web.fc2.com/img/hall_spice/bitter',
+
+                alt_text='spice_flavor_ring',
+
+                base_size=BaseSize(height=994, width=1040),
+
+                actions=[
+                    MessageImagemapAction(
+                        text='bitter_1',
+                        area=ImagemapArea(
+                            x = 61, y = 40, width = 293, height = 296
+                        )
+                    ),
+                    MessageImagemapAction(
+                        text='bitter_2',
+                        area=ImagemapArea(
+                            x = 366, y = 42, width = 304, height = 296
+                        )
+                    ),
+                    MessageImagemapAction(
+                        text='bitter_3',
+                        area=ImagemapArea(
+                            x = 681, y = 45, width = 304, height = 291
+                        )
+                    ),
+                    MessageImagemapAction(
+                        text='bitter_4',
+                        area=ImagemapArea(
+                            x = 61, y = 355, width = 289, height = 291
+                        )
+                    ),
+                    MessageImagemapAction(
+                        text='bitter_5',
+                        area=ImagemapArea(
+                            x = 366, y = 356, width = 304, height = 291
+                        )
+                    ),
+                    MessageImagemapAction(
+                        text='bitter_6',
+                        area=ImagemapArea(
+                            x = 677, y = 351, width = 314, height = 305
+                        )
+                    ),
+                    MessageImagemapAction(
+                        text='bitter_7',
+                        area=ImagemapArea(
+                            x = 50, y = 660, width = 309, height = 299
+                        )
+                    ),
+                    MessageImagemapAction(
+                        text='bitter_8',
+                        area=ImagemapArea(
+                            x = 369, y = 661, width = 304, height = 298
+                        )
+                    )
+                ]
+            )
+            line_bot_api.push_message(event.source.user_id, imagemap_message)
+            
+       
             
 #クイックリプライ（spice_g）
 #def spice_quantity
