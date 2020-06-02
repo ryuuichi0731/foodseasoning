@@ -451,7 +451,7 @@ def handle_message(event):
             
     #hall_spice_harbr
     if event.type == "message":
-        if (event.message.text == "harbr_flavor"):
+        if (event.message.text == "herb_flavor"):
             TextSendMessage(
                 text='flavor_ring',
             ),
