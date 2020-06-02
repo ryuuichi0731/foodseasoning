@@ -59,7 +59,7 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     if event.type == "message":
-        if (event.message.text == "カレーメニュー") or (event.message.text == "chicken_curry_cancel") or (event.message.text == "green_curry_cancel") or (event.message.text == "keema_curry_cancel"):
+        if (event.message.text == "Curry Menu") or (event.message.text == "chicken_curry_cancel") or (event.message.text == "green_curry_cancel") or (event.message.text == "keema_curry_cancel"):
             TextSendMessage(
                 text='画像メニューから自分好みのカレーを選んでね。',
             ),
@@ -97,7 +97,7 @@ def handle_message(event):
             
 #img_powder
     if event.type == "message":
-        if (event.message.text == "chicken_curry_next") or (event.message.text == "green_curry_next") or (event.message.text == "keema_curry_next"):
+        if (event.message.text == "chicken_curry_next") or (event.message.text == "green_curry_next") or (event.message.text == "keema_curry_next") or (event.message.text == "01_I'm Done"):
             TextSendMessage(
                 text='画像メニューから自分好みのスパイスを選んでね。',
             ),
@@ -194,7 +194,7 @@ def handle_message(event):
 
 #spice_flavor_ring            
     if event.type == "message":
-        if (event.message.text == "spice_yes"):
+        if (event.message.text == "02_I'm Done"):
             TextSendMessage(
                 text='flavor_ring',
             ),
@@ -242,38 +242,6 @@ def handle_message(event):
                         text='herb_flavor',
                         area=ImagemapArea(
                             x=650, y=500, width=270, height=210
-                        )
-                    )
-                ]
-            )
-            line_bot_api.push_message(event.source.user_id, imagemap_message)
-            
-#spice_dic            
-    if event.type == "message":
-        if (event.message.text == "chicken_curry_next") or (event.message.text == "green_curry_next") or (event.message.text == "keema_curry_next") or (event.message.text == "spice_yes"):
-            TextSendMessage(
-                text='Yes or NO',
-            ),
-
-            imagemap_message = ImagemapSendMessage(
-
-                base_url='https://foodseasoning.web.fc2.com/img/spice_dic',
-
-                alt_text='spice_dic',
-
-                base_size=BaseSize(height=223, width=1040),
-
-                actions=[
-                    MessageImagemapAction(
-                        text='spice_yes',
-                        area=ImagemapArea(
-                            x=0, y=0, width=520, height=223
-                        )
-                    ),
-                    MessageImagemapAction(
-                        text='spice_cancel',
-                        area=ImagemapArea(
-                            x=520, y=0, width=520, height=223
                         )
                     )
                 ]
